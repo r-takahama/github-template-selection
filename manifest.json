@@ -1,20 +1,23 @@
 {
-  "manifest_version": 2,
-  "name": "ほげほげ",
-  "short_name": "ほげ",
-  "description": "テンプレート選べるようにする",
-  "version" : "0.1.0",
-  "icons": {
-    "16": "img/icon16.png",
-    "48": "img/icon48.png",
-    "128": "img/icon128.png"
-  },
-  "homepage_url": "https://scouty.co.jp",
-  "content_scripts":[
+    "manifest_version": 2,
+    "name": "ほげほげ",
+    "short_name": "ほげ",
+    "description": "テンプレート選べるようにする",
+    "version": "0.1.0",
+    "icons":
     {
-      "matches": ["https://github.com/scouty-inc/scouty/issues/new"],
-      "js":["jquery-3.2.1.min.js","script.js"],
-      "run_at" : "document_end"
-    }
-  ]
+        "16": "img/icon16.png",
+        "48": "img/icon48.png",
+        "128": "img/icon128.png"
+    },
+    "homepage_url": "https://scouty.co.jp",
+    "permissions": ["tabs", "http://*/*", "https://*/*", "file:///*/*"],
+    "content_scripts": [
+    {
+        "matches": ["https://github.com/scouty-inc/scouty/issues/new"],
+        "css": ["mystyles.css"],
+        "js": ["jquery-3.2.1.min.js", "script.js"],
+        "run_at": "document_end"
+    }],
+    "web_accessible_resources": ["buttons.html", "template_bugfix.md", "template_feature.md", "mystyles.css"]
 }
